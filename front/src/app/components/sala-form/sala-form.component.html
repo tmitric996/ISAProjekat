@@ -1,0 +1,25 @@
+<div class="card my-5">
+    <div class="card-body">
+      <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+        <div class="form-group">
+          <label for="name">naziv</label>
+          <input type="text" [(ngModel)]="sala.naziv" 
+            class="form-control" 
+            id="name" 
+            name="name" 
+            placeholder="unesi naziv"
+            required #name="ngModel">
+        </div>
+        <div [hidden]="!name.pristine" class="alert alert-danger">naziv je obavezan</div>
+        <div class="form-group">
+            <label for="name">slobodna</label>
+            <input type="checkbox" value="true" [(ngModel)]="sala.slobodna" 
+            class="form-control" 
+            id="name" 
+            name="name" 
+            placeholder="slobodna?"
+            required #name="ngModel">
+        </div>
+      </form>
+    </div>
+  </div>
