@@ -14,14 +14,9 @@ import lombok.Data;
 @Data
 @Table(name = "admin_klinike")
 @Entity
-public class AdminKlinike {
+public class AdminKlinike extends User{
 
-	@Column
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	@Column
-	private String email;
+	
 	@Column
 	private String ime;
 	@Column
@@ -34,12 +29,6 @@ public class AdminKlinike {
 	private boolean adminCentra;// da li jeadmin kc ili samo klinike
 	@Column
 	private boolean prvoLogovanje; //da limu jeovo prvo logovanje
-	@Column
-	@JsonIgnore
-	private String password;
+
 	
-	public AdminKlinike() {
-		super();
-		this.prvoLogovanje=true;
-	}
 }

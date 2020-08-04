@@ -14,14 +14,9 @@ import lombok.Data;
 @Data
 @Table(name = "med_radnik")
 @Entity
-public class MedicinskiRadnici {
+public class MedicinskiRadnici extends User {
 
-	@Column
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	@Column
-	private String email;
+	
 	@Column
 	private String ime;
 	@Column
@@ -32,9 +27,6 @@ public class MedicinskiRadnici {
 	private Long klinikaUKojojSuZaposleni;//moze ici ppo idu
 	@Column
 	private boolean lekar;
-	@Column
-	@JsonIgnore
-	private String password;
 	@Column
 	private boolean prvoLogovanje;
 
