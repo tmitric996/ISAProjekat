@@ -27,12 +27,12 @@ public class MedicinskiRadniciServiceImpl implements MedicinskiRadniciService{
 
 	@Override
 	public List<MedicinskiRadnici> findLekari() {
-		return medRadniciRepo.findLekari(true);
+		return medRadniciRepo.findLekari();
 	}
 
 	@Override
 	public List<MedicinskiRadnici> findTehnicari() {
-		return medRadniciRepo.findTehnicari(false);
+		return medRadniciRepo.findTehnicari();
 	}
 
 	@Override

@@ -11,8 +11,8 @@ import com.ISA2020.back.model.MedicinskiRadnici;
 @Repository
 public interface MedicinskiRadniciRepository extends JpaRepository<MedicinskiRadnici, Long> {
 
-	@Query(value = "SELECT * FROM med_radnik AS mr where lekar=true", nativeQuery = true)
-	List<MedicinskiRadnici> findLekari(boolean b);
-	@Query(value = "SELECT * FROM med_radnik AS mr where lekar=false", nativeQuery = true)
-	List<MedicinskiRadnici> findTehnicari(boolean b);
+	@Query(value = "SELECT * FROM med_radnik AS mr where tip_korisnika=LEKAR", nativeQuery = true)
+	List<MedicinskiRadnici> findLekari();
+	@Query(value = "SELECT * FROM med_radnik AS mr where tip_korisnika=MED_TEHNICAR", nativeQuery = true)
+	List<MedicinskiRadnici> findTehnicari();
 }

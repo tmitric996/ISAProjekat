@@ -20,12 +20,12 @@ public class AdminKlinikeServiceImpl implements AdminKlinikeService {
 
 	@Override
 	public List<AdminKlinike> findAdminK() {
-		return adminKlinikeRepo.findAdminiK(false);
+		return adminKlinikeRepo.findAdminiK();
 	}
 
 	@Override
 	public List<AdminKlinike> findAdminKC() {
-		return adminKlinikeRepo.findAdminiKC(true);
+		return adminKlinikeRepo.findAdminiKC();
 	}
 
 	@Override

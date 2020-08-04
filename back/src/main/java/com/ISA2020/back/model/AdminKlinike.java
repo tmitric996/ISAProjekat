@@ -26,8 +26,6 @@ public class AdminKlinike extends User{
 	@Column
 	private Long klinikaKojuOdrzava;//moze ici ppo idu
 	@Column
-	private boolean adminCentra;// da li jeadmin kc ili samo klinike
-	@Column
 	private boolean prvoLogovanje; //da limu jeovo prvo logovanje
 
 	
