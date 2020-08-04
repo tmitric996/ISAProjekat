@@ -29,4 +29,8 @@ public class UserController {
 	public User findById(@RequestBody int id) {
 		return userService.findById(id);
 	}
+	@GetMapping("/{email}")
+	public User findById(@RequestBody String e) {
+		return userService.findByemail(e);
+	}
 }
