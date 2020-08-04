@@ -24,4 +24,15 @@ public class UserServiceImpl implements UserService{
 		return userRepo.findById(Integer.toUnsignedLong(id)).orElse(null);
 	}
 
+	@Override
+	public User findByemail(String un) {
+		List<User> users=findAll();
+		for (User user: users) {
+		if (user.getEmail().equals(un)) {
+			return user;
+			}	
+		}
+		return null;
+	}
+
 }
