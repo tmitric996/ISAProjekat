@@ -30,7 +30,7 @@ public class UserController {
 		return userService.findById(id);
 	}
 	@GetMapping("/{email}")
-	public User findById(@RequestBody String e) {
+	public User findByEmail(@RequestBody String e) {
 		return userService.findByemail(e);
 	}
 }

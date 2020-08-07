@@ -1,5 +1,6 @@
 package com.ISA2020.back.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,11 +16,15 @@ import lombok.Data;
 @Entity
 public class Pacijent extends User {
 
-
+	@Column
 	private String ime;
+	@Column
 	private String prezime;
-	private String adresa;
+	@Column
+	private Long adresa;
+	@Column
 	private String drzava;
+	@Column
 	private String jedinstveniBrOsiguranika;
 	//zdravstvenikarton
 	
