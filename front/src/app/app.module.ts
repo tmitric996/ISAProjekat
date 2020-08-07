@@ -8,11 +8,13 @@ import { SalaServiceService } from './service/sala-service.service';
 import { SalaFormComponent } from './components/sala-form/sala-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { LoginformComponent } from './components/loginform/loginform.component';
 @NgModule({
   declarations: [
     AppComponent,
     SalaComponentComponent,
-    SalaFormComponent
+    SalaFormComponent,
+    LoginformComponent
   ],
   imports: [
     BrowserModule,
