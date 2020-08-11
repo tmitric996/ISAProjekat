@@ -2,6 +2,7 @@ package com.ISA2020.back.model;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -11,7 +12,8 @@ import com.ISA2020.back.enumerations.StatusGodinjegOdmora;
 
 import lombok.Data;
 
-@Table
+@Table(name = "god_odmor")
+@Entity
 @Data
 public class GodisnjiOdmor {
 
