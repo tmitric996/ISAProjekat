@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { SalaComponentComponent } from './components/sala-component/sala-component.component';
-import { SalaFormComponent } from './components/sala-form/sala-form.component';
+import { LoginformComponent } from './components/loginform/loginform.component';
+import { RegisterformComponent } from './components/registerform/registerform.component';
 
 const routes: Routes = [
-  { path: 'sale', component: SalaComponentComponent },
-  { path: 'addsala', component: SalaFormComponent }
+  { path: 'loginform', component: LoginformComponent },
+  { path: 'register', component: RegisterformComponent }
 ];
 
 @NgModule({
