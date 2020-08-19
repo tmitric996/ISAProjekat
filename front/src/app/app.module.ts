@@ -12,13 +12,15 @@ import { LoginformComponent } from './components/loginform/loginform.component';
 import { RegisterformComponent } from './components/registerform/registerform.component';
 import { UserServiceService } from './service/user-service.service';
 import { PacijentService } from './service/pacijent.service';
+import { PacijentiListComponent } from './components/pacijenti-list/pacijenti-list.component';
 @NgModule({
   declarations: [
     AppComponent,
     SalaComponentComponent,
     SalaFormComponent,
     LoginformComponent,
-    RegisterformComponent
+    RegisterformComponent,
+    PacijentiListComponent
   ],
   imports: [
     BrowserModule,
