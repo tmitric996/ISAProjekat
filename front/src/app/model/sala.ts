@@ -1,6 +1,6 @@
 export class Sala {
-    id: Int16Array;
+    id: string;
     naziv: string;
-    naKlinici: Int16Array;
+    naKlinici: string;
     slobodna: boolean;
 }
