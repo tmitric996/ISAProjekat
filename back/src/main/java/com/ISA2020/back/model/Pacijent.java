@@ -27,5 +27,6 @@ public class Pacijent extends User {
 	@Column
 	private String jedinstveniBrOsiguranika;
 	//zdravstvenikarton
+
 	
 }

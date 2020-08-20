@@ -18,5 +18,4 @@ public class Adresa {
 	private String grad;
 	private String ulica;
 	private String broj;
-	
 }

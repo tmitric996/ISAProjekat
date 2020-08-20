@@ -24,5 +24,4 @@ public class Sala {
 	private Long naKlinici;
 	@Column(name = "slobodna")
 	private boolean slobodna;
-	
 }

@@ -29,6 +29,7 @@ public abstract class User {
 	private String password;
 	
 	@Enumerated
-	private UsersEnum tipKorisnika;
+	// TODO: 17/08/2020 sta ce nam ovo :)
+	UsersEnum tipKorisnika;
 
 }

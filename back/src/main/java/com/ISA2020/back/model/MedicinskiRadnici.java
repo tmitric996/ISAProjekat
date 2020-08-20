@@ -27,5 +27,4 @@ public class MedicinskiRadnici extends User {
 	private Long klinikaUKojojSuZaposleni;//moze ici ppo idu
 	@Column
 	private boolean prvoLogovanje;
-
 }
