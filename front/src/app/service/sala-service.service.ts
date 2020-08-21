@@ -3,7 +3,9 @@ import { HttpClient, HttpHeaders  } from '@angular/common/http';
 import { Sala } from '../model/sala';
 import { Observable } from 'rxjs';
 
-@Injectable(
+@Injectable(//{
+ // providedIn: 'root'
+//}
 )
 export class SalaServiceService {
 
