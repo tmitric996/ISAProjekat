@@ -10,18 +10,19 @@ import static org.springframework.http.HttpMethod.PUT;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;	
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+//@EnableGlobalMethodSecurity(prePostEnabled = true)
 @Configuration
-@Profile("development")
-public class CorsConfig implements WebMvcConfigurer {
+//@EnableWebSecurity
+public class CorsConfig  implements WebMvcConfigurer {
 		
+
 	@Bean
 	public CorsFilter corsFilter() {
 		final CorsConfiguration config = new CorsConfiguration();
@@ -40,7 +41,9 @@ public class CorsConfig implements WebMvcConfigurer {
 		source.registerCorsConfiguration("/**", config);
 		return new CorsFilter(source);
 	 }	
+	
 
+	
 	@Override
 	public void addCorsMappings(CorsRegistry registry) {
 		registry.addMapping("*").allowedOrigins("http://localhost:4200");
