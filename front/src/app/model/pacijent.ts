@@ -1,11 +1,12 @@
-export class Pacijent {
+import { User } from './user';
 
-    id: string;
-    email: string;
-    password: string;
+export class Pacijent extends User  {
+
+     
     ime: string;
     prezime: string;
     adresa: string;
     drzava: string;
-    jedinstveniBrO: string;
+    jedinstveniBrOsiguranika: string; 
 }
+

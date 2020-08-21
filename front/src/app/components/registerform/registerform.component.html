@@ -62,14 +62,14 @@
                 <div [hidden]="!drzava.pristine" class="alert alert-danger">Drzava je obavezna</div>
               </div>
               <div class="form-group">
-                <label for="jedinstveniBrO">Jedinstveni broj osiguranika</label>
-                <input type="text" [(ngModel)]="pacijent.jedinstveniBrO" 
+                <label for="jedinstveniBrOsiguranika">Jedinstveni broj osiguranika</label>
+                <input type="text" [(ngModel)]="pacijent.jedinstveniBrOsiguranika" 
                   class="form-control" 
-                  id="jedinstveniBrO" 
-                  name="jedinstveniBrO" 
+                  id="jedinstveniBrOsiguranika" 
+                  name="jedinstveniBrOsiguranika" 
                   placeholder="Unesite jedinstveni broj osiguranika"
-                  required #jedinstveniBrO="ngModel">
-                <div [hidden]="!jedinstveniBrO.pristine" class="alert alert-danger">Broj osiguranika je obavezna</div>
+                  required #jedinstveniBrOsiguranikasiguranika="ngModel">
+                <div [hidden]="!jedinstveniBrOsiguranikasiguranika.pristine" class="alert alert-danger">Broj osiguranika je obavezna</div>
               </div>
             <button type="submit" [disabled]="!pacijentForm.form.valid" 
               class="btn btn-info">Registruj se</button>
