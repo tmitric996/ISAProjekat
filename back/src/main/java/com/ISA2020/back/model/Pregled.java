@@ -35,5 +35,4 @@ public class Pregled {
 	private Long pacijent;
 	@Column
 	private StanjePregleda statusPregleda;
-
 }

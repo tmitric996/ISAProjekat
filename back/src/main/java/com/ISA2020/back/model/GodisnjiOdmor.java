@@ -25,4 +25,5 @@ public class GodisnjiOdmor {
 	private Date datumPocetka;
 	private Date datumZavrsetka;
 
+	
 }

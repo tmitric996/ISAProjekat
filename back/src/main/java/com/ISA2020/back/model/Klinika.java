@@ -27,4 +27,6 @@ public class Klinika {
 	private Long cenovnik;//idcenovnika
 	@Column
 	private int prosecnaOcena;
+	
+	
 }

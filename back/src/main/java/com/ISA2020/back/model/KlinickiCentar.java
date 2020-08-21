@@ -15,7 +15,6 @@ public class KlinickiCentar {
 	private String telefon;
 	//lista klinika, admini, pacijenti
 
-
 }
 
 
