@@ -8,7 +8,7 @@ import { PacijentService } from 'src/app/service/pacijent.service';
   templateUrl: './registerform.component.html',
   styleUrls: ['./registerform.component.css']
 })
-export class RegisterformComponent implements OnInit {
+export class RegisterformComponent{
 
   pacijent:  Pacijent;
   constructor(private route: ActivatedRoute, 
@@ -16,11 +16,14 @@ export class RegisterformComponent implements OnInit {
       private pacijentService: PacijentService) {
   this.pacijent = new Pacijent();
  }
-  ngOnInit(): void {
-  }
+
   onSubmit() {
     this.pacijent.tipKorisnika="PACIJENT";
-    this.pacijentService.save(this.pacijent).subscribe();
+    this.pacijentService.save(this.pacijent).subscribe(result => this.goToPacijentList());
+  }
+
+  goToPacijentList(){
+    this.router.navigate(['/pacijenti']);
   }
   
 }
