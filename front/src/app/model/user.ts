@@ -1,6 +1,5 @@
 export class User {
-    id: string;
+    id: Int16Array;
     email: string;
     password: string;
-    tipKorisnika: string;
 }
