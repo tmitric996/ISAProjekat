@@ -9,7 +9,7 @@ export class AppComponent {
   title: string;
 
   constructor (){
-    this.title = 'Klinički centar';
+    this.title = 'Klinicki centar';
   }
 }
 
