@@ -13,13 +13,14 @@ export class RegisterformComponent implements OnInit {
   pacijent:  Pacijent;
   constructor(private route: ActivatedRoute, 
     private router: Router, 
-      private userService: PacijentService) {
+      private pacijentService: PacijentService) {
   this.pacijent = new Pacijent();
  }
   ngOnInit(): void {
   }
   onSubmit() {
-
+    this.pacijent.tipKorisnika="PACIJENT";
+    this.pacijentService.save(this.pacijent).subscribe();
   }
   
 }
