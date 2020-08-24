@@ -1,0 +1,78 @@
+<div class="card my-5">
+    <div class="card-body">
+        <form (ngSubmit)="onSubmit()" #pacijentForm="ngForm">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="text" [(ngModel)]="pacijent.email" 
+                class="form-control" 
+                id="email" 
+                name="email" 
+                placeholder="Unesite email"
+                required #email="ngModel">
+            </div>
+            <div [hidden]="!email.pristine" class="alert alert-danger">Email je obavezan</div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="text" [(ngModel)]="pacijent.password" 
+                class="form-control" 
+                id="password" 
+                name="password" 
+                placeholder="Unesite password"
+                required #password="ngModel">
+              <div [hidden]="!password.pristine" class="alert alert-danger">Password je obavezan</div>
+            </div>
+            <div class="form-group">
+                <label for="ime">Ime</label>
+                <input type="text" [(ngModel)]="pacijent.ime" 
+                  class="form-control" 
+                  id="ime" 
+                  name="ime" 
+                  placeholder="Unesite ime"
+                  required #ime="ngModel">
+              </div>
+              <div [hidden]="!ime.pristine" class="alert alert-danger">Ime je obavezno</div>
+              <div class="form-group">
+                <label for="prezime">Prezime</label>
+                <input type="text" [(ngModel)]="pacijent.prezime" 
+                  class="form-control" 
+                  id="prezime" 
+                  name="prezime" 
+                  placeholder="Unesite prezime"
+                  required #prezime="ngModel">
+                <div [hidden]="!prezime.pristine" class="alert alert-danger">Prezime je obavezan</div>
+              </div>
+              <div class="form-group">
+                <label for="adresa">Adresa</label>
+                <input type="text" [(ngModel)]="pacijent.adresa" 
+                  class="form-control" 
+                  id="adresa" 
+                  name="adresa" 
+                  placeholder="Unesite adresa"
+                  required #adresa="ngModel">
+              </div>
+              <div [hidden]="!adresa.pristine" class="alert alert-danger">Adresa je obavezna</div>
+              <div class="form-group">
+                <label for="drzava">Drzava</label>
+                <input type="text" [(ngModel)]="pacijent.drzava" 
+                  class="form-control" 
+                  id="drzava" 
+                  name="drzava" 
+                  placeholder="Unesite drzava"
+                  required #drzava="ngModel">
+                <div [hidden]="!drzava.pristine" class="alert alert-danger">Drzava je obavezna</div>
+              </div>
+              <div class="form-group">
+                <label for="jedinstveniBrOsiguranika">Jedinstveni broj osiguranika</label>
+                <input type="text" [(ngModel)]="pacijent.jedinstveniBrOsiguranika" 
+                  class="form-control" 
+                  id="jedinstveniBrOsiguranika" 
+                  name="jedinstveniBrOsiguranika" 
+                  placeholder="Unesite jedinstveni broj osiguranika"
+                  required #jedinstveniBrOsiguranikasiguranika="ngModel">
+                <div [hidden]="!jedinstveniBrOsiguranikasiguranika.pristine" class="alert alert-danger">Broj osiguranika je obavezna</div>
+              </div>
+            <button type="submit" [disabled]="!pacijentForm.form.valid" 
+              class="btn btn-info">Registruj se</button>
+        </form>
+    </div>
+</div>
