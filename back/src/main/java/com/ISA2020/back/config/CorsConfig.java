@@ -10,23 +10,18 @@ import static org.springframework.http.HttpMethod.PUT;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-//import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
-//import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-//import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-//import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.context.annotation.Profile;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;	
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-//@EnableGlobalMethodSecurity(prePostEnabled = true)
 @Configuration
-//@EnableWebSecurity
+@Profile("development")
 public class CorsConfig implements WebMvcConfigurer {
 		
-
 	@Bean
 	public CorsFilter corsFilter() {
 		final CorsConfiguration config = new CorsConfiguration();
@@ -45,25 +40,7 @@ public class CorsConfig implements WebMvcConfigurer {
 		source.registerCorsConfiguration("/**", config);
 		return new CorsFilter(source);
 	 }	
-	
-	/*@Override
-    protected void configure(HttpSecurity http) throws Exception {
-		http
-        .authorizeRequests()
-          .antMatchers("/", "/register").permitAll() // (3)
-          .anyRequest().authenticated() // (4)
-          .and()
-       .formLogin() // (5)
-         .loginPage("/loginform") // (5)
-         .permitAll()
-         .and()
-      .logout() // (6)
-        .permitAll()
-        .and()
-      .httpBasic(); // (7)
-    }*/
 
-	
 	@Override
 	public void addCorsMappings(CorsRegistry registry) {
 		registry.addMapping("*").allowedOrigins("http://localhost:4200");
