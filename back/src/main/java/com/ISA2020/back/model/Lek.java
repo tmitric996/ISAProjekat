@@ -1,14 +1,12 @@
 package com.ISA2020.back.model;
 
 import com.sun.istack.NotNull;
+import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
-
+@Data
 @Entity
 public class Lek {
 
@@ -21,4 +19,10 @@ public class Lek {
 
     @NotBlank
     private Integer sifra;
+
+    @ManyToOne
+    @JoinColumn(name = "med_rad_id")
+    private MedicinskiRadnici overenOdStrane;
+
+    private Boolean overen;
 }

@@ -12,11 +12,15 @@ import javax.persistence.Inheritance;
 import com.ISA2020.back.enumerations.UsersEnum;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Inheritance(strategy=TABLE_PER_CLASS)
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public abstract class User {
 	
 	@Id
@@ -30,5 +34,4 @@ public abstract class User {
 	
 	@Enumerated
 	private UsersEnum tipKorisnika;
-
 }

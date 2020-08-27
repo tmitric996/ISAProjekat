@@ -2,6 +2,9 @@ package com.ISA2020.back.service;
 
 import java.util.List;
 
+import com.ISA2020.back.enumerations.UsersEnum;
+import com.ISA2020.back.model.Pacijent;
+import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,5 +38,24 @@ public class UserServiceImpl implements UserService{
 		}
 		return null;
 	}
+
+	//pretraga po tipu korisnika
+	//da ne bismo vracali sve korisnike
+	@Override
+	public List<User> getAll(UsersEnum tip){
+
+		if(tip == null){
+			return userRepo.findAll();
+		}
+
+		return userRepo.findAllByTipKorisnika(tip);
+	}
+
+	//prihvatanje registracije korisnika
+
+
+
+
+
 
 }

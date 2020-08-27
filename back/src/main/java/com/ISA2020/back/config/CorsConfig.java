@@ -10,10 +10,10 @@ import static org.springframework.http.HttpMethod.PUT;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+//import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+//import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+//import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+//import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
@@ -21,10 +21,10 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-@EnableGlobalMethodSecurity(prePostEnabled = true)
+//@EnableGlobalMethodSecurity(prePostEnabled = true)
 @Configuration
-@EnableWebSecurity
-public class CorsConfig extends WebSecurityConfigurerAdapter implements WebMvcConfigurer {
+//@EnableWebSecurity
+public class CorsConfig implements WebMvcConfigurer {
 		
 
 	@Bean
@@ -46,7 +46,7 @@ public class CorsConfig extends WebSecurityConfigurerAdapter implements WebMvcCo
 		return new CorsFilter(source);
 	 }	
 	
-	@Override
+	/*@Override
     protected void configure(HttpSecurity http) throws Exception {
 		http
         .authorizeRequests()
@@ -62,7 +62,7 @@ public class CorsConfig extends WebSecurityConfigurerAdapter implements WebMvcCo
         .and()
       .httpBasic(); // (7)
     }
-
+*/
 	
 	@Override
 	public void addCorsMappings(CorsRegistry registry) {

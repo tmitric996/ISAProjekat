@@ -10,10 +10,11 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
+import lombok.Getter;
 
 @Data
-@Table(name = "admin_klinike")
 @Entity
+@Table(name = "admin_klinike")
 public class AdminKlinike extends User{
 
 	
@@ -26,7 +27,6 @@ public class AdminKlinike extends User{
 	@Column
 	private Long klinikaKojuOdrzava;//moze ici ppo idu
 	@Column
-	private boolean prvoLogovanje; //da limu jeovo prvo logovanje
-
+	private Boolean prvoLogovanje; //da limu jeovo prvo logovanje
 	
 }
