@@ -3,15 +3,21 @@ package com.ISA2020.back.model;
 import static javax.persistence.InheritanceType.TABLE_PER_CLASS;
 
 import java.security.Timestamp;
+import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.ISA2020.back.enumerations.UsersEnum;
@@ -44,6 +50,15 @@ public abstract class User implements UserDetails {
 	
 	private Date lastPasswordResetDate;
 
+	@ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "radnici_authority",
+            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "authority_id", referencedColumnName = "id"))
+	private java.util.List<Authority> authorities;
+	@Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return this.authorities;
+    }
 	
 
 }

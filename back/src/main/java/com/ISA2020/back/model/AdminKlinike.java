@@ -37,16 +37,7 @@ public class AdminKlinike extends User{
 	private Long klinikaKojuOdrzava;//moze ici ppo idu
 	@Column
 	private Boolean prvoLogovanje; //da limu jeovo prvo logovanje
-	@ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "user_authority",
-            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "authority_id", referencedColumnName = "id"))
-	private List<Authority> authorities;
 	
-	@Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return this.authorities;
-    }
 	@Override
 	public String getUsername() {
 		return this.getEmail();

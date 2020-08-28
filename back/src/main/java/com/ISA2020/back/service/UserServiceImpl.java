@@ -59,7 +59,7 @@ public class UserServiceImpl implements UserService{
 		pacijent.setPassword(passwordEncoder.encode(u.getPassword()));
 		pacijent.setIme(u.getFirstname());
 		pacijent.setPrezime(u.getLastname());
-		pacijent.isEnabled();
+		pacijent.setEnabled(true);
 		List<Authority> auth = authService.findByname("ROLA_PACIJENT");
 		
 		pacijent.setAdresa(Integer.toUnsignedLong(u.getAdress()));
