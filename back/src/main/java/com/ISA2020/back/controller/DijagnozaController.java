@@ -1,5 +1,5 @@
 package com.ISA2020.back.controller;
-
+/*
 import com.ISA2020.back.service.DijagnozaService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -26,4 +26,4 @@ public class DijagnozaController {
     public void dodajDijagnozu(@Valid @RequestBody DijagnozaRequest dijagnozaRequest){
         dijagnozaService.dodaj(dijagnozaRequest);
     }
-}
+}*/

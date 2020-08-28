@@ -11,7 +11,7 @@ import java.util.List;
 @RequestMapping("/operacija")
 public class OperacijaController {
 
-    @GetMapping("/sve")
+	/*   @GetMapping("/sve")
     public List<OperacijeResponse> vratiSveOperacije(){
 
     }
@@ -24,5 +24,5 @@ public class OperacijaController {
     @PostMapping("/promenidatum")
     public void promeniDatum(){
 
-    }
+    }*/
 }

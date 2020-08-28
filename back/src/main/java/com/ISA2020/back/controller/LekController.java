@@ -10,7 +10,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/lek")
 public class LekController {
-    @GetMapping("/sve")
+   /* @GetMapping("/sve")
     public List<LekResponse> vratiSveLekove(){
 
     }
@@ -23,6 +23,6 @@ public class LekController {
     @PostMapping("/overi")
     public void overiLek(){
 
-    }
+    }*/
 
 }
