@@ -5,9 +5,13 @@ import java.util.Collection;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import org.springframework.security.core.GrantedAuthority;
@@ -30,20 +34,17 @@ public class MedicinskiRadnici extends User {
 	@Column
 	private Long klinikaUKojojSuZaposleni;//moze ici ppo idu
 	@Column
-	private boolean prvoLogovanje;
+	
+	private Boolean prvoLogovanje; //da limu jeovo prvo logovanje
+	@ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "user_authority",
+            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "authority_id", referencedColumnName = "id"))
+	private java.util.List<Authority> authorities;
 	@Override
-	public Collection<? extends GrantedAuthority> getAuthorities() {
-		if (this.getTipKorisnika().equals("LEKAR")) {
-			Authority auth= new Authority();
-			auth.setName("ROLA_LEKAR");
-			return (Collection<? extends GrantedAuthority>) auth;
-		}
-		else {
-			Authority auth= new Authority();
-			auth.setName("ROLA_MEDICINSKI_TEHNICAR");
-			return (Collection<? extends GrantedAuthority>) auth;
-		}
-	}
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return this.authorities;
+    }
 	@Override
 	public String getUsername() {
 		return this.getEmail();
@@ -58,6 +59,10 @@ public class MedicinskiRadnici extends User {
 	}
 	@Override
 	public boolean isCredentialsNonExpired() {
+		return true;
+	}
+	@Override
+	public boolean isEnabled() {
 		return true;
 	}
 
