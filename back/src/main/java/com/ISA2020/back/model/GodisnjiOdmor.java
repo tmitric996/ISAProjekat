@@ -11,6 +11,7 @@ import javax.persistence.Table;
 import com.ISA2020.back.enumerations.StatusGodinjegOdmora;
 
 import lombok.Data;
+import lombok.Getter;
 
 @Table(name = "god_odmor")
 @Entity
@@ -24,6 +25,4 @@ public class GodisnjiOdmor {
 	private StatusGodinjegOdmora statusGodisnjeg;
 	private Date datumPocetka;
 	private Date datumZavrsetka;
-
-	
 }

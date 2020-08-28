@@ -2,6 +2,9 @@ package com.ISA2020.back.service;
 
 import java.util.List;
 
+import com.ISA2020.back.enumerations.UsersEnum;
+import com.ISA2020.back.model.Pacijent;
+import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -48,6 +51,7 @@ public class UserServiceImpl implements UserService{
 		return null;
 	}
 
+
 	@Override
 	public User save(UserRequest u) {
 		Pacijent pacijent= new Pacijent();
@@ -55,9 +59,9 @@ public class UserServiceImpl implements UserService{
 		pacijent.setPassword(passwordEncoder.encode(u.getPassword()));
 		pacijent.setIme(u.getFirstname());
 		pacijent.setPrezime(u.getLastname());
-		pacijent.setEnabled(true);
+		pacijent.isEnabled();
 		List<Authority> auth = authService.findByname("ROLA_PACIJENT");
-	
+		
 		pacijent.setAdresa(Integer.toUnsignedLong(u.getAdress()));
 		pacijent.setDrzava(u.getCountry());
 		pacijent.setJedinstveniBrOsiguranika(u.getJzbo());
@@ -66,5 +70,19 @@ public class UserServiceImpl implements UserService{
 		return pacijentService.save(pacijent);
 	
 	}
+
+	//pretraga po tipu korisnika
+	//da ne bismo vracali sve korisnike
+	@Override
+	public List<User> getAll(UsersEnum tip){
+
+		if(tip == null){
+			return userRepo.findAll();
+		}
+
+		return userRepo.findAllByTipKorisnika(tip);
+	}
+
+	//prihvatanje registracije korisnika
 
 }

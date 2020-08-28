@@ -17,12 +17,16 @@ import org.springframework.security.core.userdetails.UserDetails;
 import com.ISA2020.back.enumerations.UsersEnum;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Inheritance(strategy=TABLE_PER_CLASS)
 @Data
 public abstract class User implements UserDetails {
+
+
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.TABLE)
@@ -35,8 +39,11 @@ public abstract class User implements UserDetails {
 	
 	@Enumerated
 	private UsersEnum tipKorisnika;
-	private boolean enabled;
+
+	private Boolean enabled;
+	
 	private Date lastPasswordResetDate;
 
 	
+
 }

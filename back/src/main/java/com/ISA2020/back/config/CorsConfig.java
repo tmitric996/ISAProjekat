@@ -46,23 +46,6 @@ public class CorsConfig implements WebMvcConfigurer {
 		return new CorsFilter(source);
 	 }	
 	
-/*	@Override
-    protected void configure(HttpSecurity http) throws Exception {
-		http
-        .authorizeRequests()
-          .antMatchers("/", "/register").permitAll() // (3)
-          .anyRequest().authenticated() // (4)
-          .and()
-       .formLogin() // (5)
-         .loginPage("/loginform") // (5)
-         .permitAll()
-         .and()
-      .logout() // (6)
-        .permitAll()
-        .and()
-      .httpBasic(); // (7)
-    }
-*/
 	
 	@Override
 	public void addCorsMappings(CorsRegistry registry) {

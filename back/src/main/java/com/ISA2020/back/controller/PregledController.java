@@ -2,16 +2,19 @@ package com.ISA2020.back.controller;
 
 import java.util.List;
 
+import com.ISA2020.back.request.PregledRequest;
+import com.ISA2020.back.response.PregledResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 import com.ISA2020.back.model.Pregled;
 import com.ISA2020.back.service.PregledServiceImpl;
+
+import javax.validation.Valid;
+
+import static com.ISA2020.back.converter.PregledConverter.toResponses;
 
 @RestController
 @EnableAutoConfiguration
@@ -37,5 +40,24 @@ public class PregledController {
 	public Pregled findById(@RequestBody int id){
 		return pregledService.findById(id);
 	}
+
+	@GetMapping("/svi")
+	public List<PregledResponse> vratiSvePreglede(){
+		return toResponses(pregledService.getAll());
+	}
+
+	//kreiraj novi pregled
+	@PostMapping("/dodaj")
+	@ResponseStatus(HttpStatus.CREATED)
+	public void kreirajPregled(@Valid @RequestBody PregledRequest pregledRequest){
+		pregledService.dodaj(pregledRequest);
+	}
+
+	@PutMapping("/{id}/izmeni")
+	@ResponseStatus(HttpStatus.OK)
+	public void izmeniPregled(@Valid @RequestBody PregledRequest pregledRequest, @PathVariable("id") Long id){
+		pregledService.izmeni(pregledRequest, id);
+	}
+
 	
 }

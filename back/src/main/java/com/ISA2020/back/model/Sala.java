@@ -7,22 +7,29 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
-@Table(name = "sala")
 @Entity
+@Data
+@AllArgsConstructor
 public class Sala {
 
 	@Id
-	@Column(name = "id")
+
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@Column(name = "naziv")
+
 	private String naziv;
-	@Column(name = "na_klinici")
+
 	private Long naKlinici;
-	@Column(name = "slobodna")
-	private boolean slobodna;
+
+	private Boolean slobodna;
+
+	public Sala(){
+
+	}
 	
 }

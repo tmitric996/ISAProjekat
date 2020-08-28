@@ -2,6 +2,7 @@ package com.ISA2020.back.service;
 
 import java.util.List;
 
+import com.ISA2020.back.request.KlinikaRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -70,6 +71,22 @@ public class KlinikaServiceImpl implements KlinikaService{
 			}
 		}
 		return temp;
+	}
+
+	@Override
+	public List<Klinika> getAll(){
+		return klinikaRepo.findAll();
+	}
+
+	@Override
+	public void dodaj(KlinikaRequest klinikaRequest){
+		Klinika klinika = new Klinika();
+		klinika.setNaziv(klinikaRequest.getNaziv());
+		klinika.setOpis(klinikaRequest.getOpis());
+		klinika.setAdresa(klinikaRequest.getAdresa());
+		klinika.setPripadaKlinickomCentru(klinikaRequest.getPripadaKlinickomCentru());
+		klinika.setProsecnaOcena(klinikaRequest.getProsecnaOcena());
+		klinikaRepo.save(klinika);
 	}
 
 }

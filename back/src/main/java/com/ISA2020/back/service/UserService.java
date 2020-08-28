@@ -2,7 +2,10 @@ package com.ISA2020.back.service;
 
 import java.util.List;
 
+
 import com.ISA2020.back.dto.UserRequest;
+
+import com.ISA2020.back.enumerations.UsersEnum;
 import com.ISA2020.back.model.User;
 
 public interface UserService {
@@ -12,4 +15,8 @@ public interface UserService {
 	public User findByemail(String un);
 	
 	User save(UserRequest u);
+
+	List<User> getAll(UsersEnum tip);
+
+
 }

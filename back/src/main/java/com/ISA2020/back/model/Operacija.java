@@ -1,15 +1,17 @@
 package com.ISA2020.back.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.xml.crypto.Data;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
-
-
+@Data
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 public class Operacija {
 
     @Id
@@ -18,8 +20,9 @@ public class Operacija {
 
     private Date datumVreme;
 
-    //private Pacijent pacijent;
-    //todo: naci kako se stavlja lista kao parametar
+    @ManyToOne
+    @JoinColumn(name = "pacijentId")
+    private Pacijent pacijent;
     //za listu medicinskih radnika
 
 

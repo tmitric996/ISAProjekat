@@ -10,11 +10,13 @@ import javax.persistence.Table;
 
 import com.ISA2020.back.enumerations.StanjePregleda;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
 @Table(name = "pregled")
 @Entity
+@AllArgsConstructor
 public class Pregled {
 
 	@Column
@@ -35,4 +37,8 @@ public class Pregled {
 	private Long pacijent;
 	@Column
 	private StanjePregleda statusPregleda;
+	private String izvestaj;
+
+	public Pregled(){
+	}
 }

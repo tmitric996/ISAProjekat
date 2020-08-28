@@ -3,6 +3,7 @@ package com.ISA2020.back.service;
 import java.io.IOException;
 import java.util.List;
 
+import com.ISA2020.back.request.SalaRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -42,12 +43,25 @@ public class SalaServiceImpl implements SalaService{
 	public void deleteSala(int i) throws IOException {
 		Long idi=Integer.toUnsignedLong(i);
 		Sala temp= salaRepo.findById(idi).get();
-		if (temp.isSlobodna()) {
+		if (temp.getSlobodna()) {
 		salaRepo.deleteById(idi);
 		} else {
 			throw new IOException("sala nije slobodna, ne moze biti izbrisana");
 		}
 	}
-	
+
+	@Override
+	public List<Sala> getAll(){
+		return salaRepo.findAll();
+	}
+
+	@Override
+	public void dodaj(SalaRequest salaRequest){
+		Sala sala = new Sala();
+		sala.setNaziv(salaRequest.getNaziv());
+		sala.setNaKlinici(salaRequest.getNaKlinici());
+		sala.setSlobodna(salaRequest.getSlobodna());
+		salaRepo.save(sala);
+	}
 
 }
