@@ -14,7 +14,7 @@ public interface UserService {
 	public User findById(int id);
 	public User findByemail(String un);
 	
-	User save(UserRequest u);
+	//User save(UserRequest u);
 
 	List<User> getAll(UsersEnum tip);
 

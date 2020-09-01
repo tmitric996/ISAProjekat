@@ -11,13 +11,13 @@ public class UserRequest {
 
 	private String password;
 
-	private String firstname;
+	private String ime;
 
-	private String lastname;
+	private String prezime;
 	
-	private int adress;
+	private int adresa;
 	
-	private String country;
+	private String drzava;
 	
-	private String jzbo;
+	private String jedinstveniBrOsiguranika;
 }

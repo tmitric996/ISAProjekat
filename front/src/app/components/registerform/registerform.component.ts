@@ -19,6 +19,7 @@ export class RegisterformComponent{
 
   onSubmit() {
     this.pacijent.tipKorisnika="PACIJENT";
+    this.pacijent.enabled=true;
     this.pacijentService.save(this.pacijent).subscribe(result => this.goToPacijentList());
   }
 

@@ -52,7 +52,7 @@ public class UserServiceImpl implements UserService{
 	}
 
 
-	@Override
+/*	@Override
 	public User save(UserRequest u) {
 		Pacijent pacijent= new Pacijent();
 		pacijent.setEmail(u.getEmail());
@@ -69,7 +69,7 @@ public class UserServiceImpl implements UserService{
 		pacijent.setAuthorities(auth);
 		return pacijentService.save(pacijent);
 	
-	}
+	}*/
 
 	//pretraga po tipu korisnika
 	//da ne bismo vracali sve korisnike

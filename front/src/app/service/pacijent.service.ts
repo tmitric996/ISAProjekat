@@ -7,9 +7,18 @@ import { Pacijent } from '../model/pacijent';
 export class PacijentService {
 
   private pacijentUrl: string;
+  private savePacijentUrl: string;
+  private body: { email :string ,
+  password:string,
+  firstname:string,
+  lastname:string,
+  adress:string,
+  country:string,
+  jzbo:string };
 
   constructor(private http: HttpClient) {
     this.pacijentUrl = 'http://localhost:8080/pacijenti';
+    this.savePacijentUrl = 'http://localhost:8080/auth/register';
   }
 
   public findAll(): Observable<Pacijent[]> {
@@ -17,6 +26,8 @@ export class PacijentService {
   }
  
   public save(pacijent: Pacijent) {
-    return this.http.post<Pacijent>(this.pacijentUrl, pacijent);
+    
+
+    return this.http.post<Pacijent>(this.savePacijentUrl, pacijent);
   }
 }

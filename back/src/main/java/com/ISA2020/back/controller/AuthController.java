@@ -22,8 +22,10 @@ import com.ISA2020.back.dto.JwtAuthenticationRequest;
 import com.ISA2020.back.dto.UserRequest;
 import com.ISA2020.back.dto.UserTokenState;
 import com.ISA2020.back.exception.ResourceConflictException;
+import com.ISA2020.back.model.Pacijent;
 import com.ISA2020.back.model.User;
 import com.ISA2020.back.security.TokenUtils;
+import com.ISA2020.back.service.PacijentServiceImpl;
 import com.ISA2020.back.service.UserCustomDetailServiceImpl;
 import com.ISA2020.back.service.UserServiceImpl;
 
@@ -33,7 +35,8 @@ import com.ISA2020.back.service.UserServiceImpl;
 public class AuthController {
 	@Autowired
 	UserServiceImpl userService;
-	
+	@Autowired
+	PacijentServiceImpl pacService;
 	@Autowired
 	private TokenUtils tokenUtils;
 	@Autowired
@@ -67,16 +70,19 @@ public class AuthController {
 	// Endpoint za registraciju novog korisnika
 	@PostMapping("/register") // registracija bi trebalo da prolazi,samo lepo dasenasteluju polja sva da se upisuju
 	public ResponseEntity<User> addUser(@RequestBody UserRequest userRequest, UriComponentsBuilder ucBuilder) {
-
+		System.out.println("usao u registraciju");
+		System.out.println(userRequest.toString());
 		User existUser = this.userService.findByemail(userRequest.getEmail());
 		if (existUser != null) {
 			throw new ResourceConflictException(userRequest.getId(), "Email already exists");
 		}
-
-		User user = this.userService.save(userRequest);
+		System.out.println("prosaoproveru dali postoji usersatimemailom");
+		Pacijent p = this.pacService.save(userRequest);
+		System.out.println("prosao cuvanje pacijenta");
 		HttpHeaders headers = new HttpHeaders();
-		headers.setLocation(ucBuilder.path("/user/{id}").buildAndExpand(user.getId()).toUri());
-		return new ResponseEntity<>(user, HttpStatus.CREATED);
+		headers.setLocation(ucBuilder.path("/pacijenti/{id}").buildAndExpand(p.getId()).toUri());
+		System.out.println("prosao uri  buider");
+		return new ResponseEntity<>(p, HttpStatus.CREATED);
 	}
 	
 	// U slucaju isteka vazenja JWT tokena, endpoint koji se poziva da se token osvezi

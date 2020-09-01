@@ -5,8 +5,8 @@
               <label for="email">Email</label>
               <input type="text" [(ngModel)]="user.email" 
                 class="form-control" 
-                id="email" 
-                name="email" 
+                id="user.email" 
+                name="user.email" 
                 placeholder="Unesite email"
                 required #email="ngModel">
             </div>
@@ -15,8 +15,8 @@
               <label for="password">Password</label>
               <input type="text" [(ngModel)]="user.password" 
                 class="form-control" 
-                id="password" 
-                name="password" 
+                id="user.password" 
+                name="user.password" 
                 placeholder="Unesite password"
                 required #password="ngModel">
               <div [hidden]="!password.pristine" class="alert alert-danger">Password je obavezan</div>

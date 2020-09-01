@@ -14,6 +14,8 @@ import { UserServiceService } from './service/user-service.service';
 import { PacijentService } from './service/pacijent.service';
 import { AppService } from './service/app.service';
 import { PacijentiListComponent } from './components/pacijenti-list/pacijenti-list.component';
+import { AuthService } from './service/auth.service';
+import { ApiService } from './service/api.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +35,9 @@ import { PacijentiListComponent } from './components/pacijenti-list/pacijenti-li
     UserServiceService,
     SalaServiceService,
     PacijentService,
-    AppService
+    AppService,
+    AuthService,
+    ApiService
   ],
   bootstrap: [AppComponent]
 })

@@ -3,4 +3,7 @@ export class User {
     email: string;
     password: string;
     tipKorisnika: string;
+    enabled: Boolean;
+    lastPasswordResetDate: Date;
+    
 }

@@ -1,5 +1,6 @@
 package com.ISA2020.back.controller;
 
+import java.security.Principal;
 import java.util.List;
 
 import com.ISA2020.back.enumerations.UsersEnum;
@@ -23,6 +24,8 @@ public class UserController {
 	@Autowired
 	UserServiceImpl userService;
 	
+	
+	
 	@GetMapping
 	public List<User> findAll(){
 		return userService.findAll();
@@ -41,5 +44,9 @@ public class UserController {
 	public List<UserResponse> vratiSveKorisnike(@RequestParam(value = "tip", required = false) UsersEnum tip){
 		return toResponses(userService.getAll(tip));
 	}
-
+	@GetMapping("/whoami")
+	//@PreAuthorize("hasRole('USER')")
+	public User user(Principal user) {
+		return this.userService.findByemail(user.getName());
+	}
 }
