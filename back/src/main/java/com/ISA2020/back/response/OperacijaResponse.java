@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.time.ZonedDateTime;
 import java.util.Date;
 
 @Getter
@@ -19,7 +20,7 @@ public class OperacijaResponse {
     @NotBlank
     Long id;
     @NotBlank
-    Date datumVreme;
+    ZonedDateTime datumVreme;
     @NotBlank
     String imePacijenta;
     @NotBlank
