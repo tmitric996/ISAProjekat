@@ -43,11 +43,14 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public User findByemail(String un) {
 		List<User> users=findAll();
+		System.out.println(un);
 		for (User user: users) {
+			System.out.println("postojilista");
 		if (user.getEmail().equals(un)) {
 			return user;
 			}	
 		}
+		System.out.println("nijenasao");
 		return null;
 	}
 

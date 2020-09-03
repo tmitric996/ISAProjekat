@@ -30,21 +30,31 @@ export class LoginformComponent {
  }
 
  onSubmit() {
+   console.log('kliknuo');
+   
   this.authService.login(this.user)
       .subscribe(data => {
-        this.goToPacijentList();
-        //  this.userService.getMyInfo().subscribe();
+       
+          this.userService.getMyInfo(this.user.email).subscribe(
+            data => {
+              console.log(data);
+              
+              localStorage.setItem("ROLE", data.tipKorisnika);
+            localStorage.setItem("USERNAME", data.email);
+          console.log(localStorage);
+          
+          }
+          );
         //  this.router.navigate([this.returnUrl]);
         },
         error => {
+         console.log('Incorrect username or password.');
           
         //  this.notification = {msgType: 'error', msgBody: 'Incorrect username or password.'};
         });
 
  }
- goToPacijentList(){
-  this.router.navigate(['/pacijenti']);
-}
+
  private ngUnsubscribe: Subject<void> = new Subject<void>();
 
   /*ngOnInit(): void {

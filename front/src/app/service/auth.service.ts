@@ -14,25 +14,37 @@ export class AuthService {
   constructor(private userService: UserServiceService,
     private router: Router,
     private apiService: ApiService) { }
-    private user: User;
-    private access_token = null;
-    private loginURL:'http://localhost:8080/auth/login';
-    private body : {
-      email: string,
-      password: string
+    //private user: User;
+    private accesstoken = "";
+    loginURL = 'http://localhost:8080/auth/login';
+     body : {
+      email: '',
+      password: ''
     };
 
-    login(user: User){
+    login(user: User) : any {
+      console.log('usao u login');
+      console.log(user.email);
+      //console.log(this.body.email)
       const loginHeaders = new HttpHeaders({
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       });
-      this.body.email=user.email;
-      this.body.password=user.password;
-      return this.apiService.post(this.loginURL, this.body, loginHeaders)
+      
+      //this.body.email=user.email;
+      console.log('moze da dodelivrednsot');
+      console.log(user);
+      console.log(this.loginURL);
+      
+      //this.body.password=user.password;
+      return this.apiService.post(this.loginURL, user, loginHeaders)
       .pipe(map((res)=>{
         console.log('Login success');
-        this.access_token = res.AccessToken;
+        console.log(res);
+        console.log(res.accessToken)
+        this.accesstoken = res.accessToken;
+
+        
       }));
     }
   }

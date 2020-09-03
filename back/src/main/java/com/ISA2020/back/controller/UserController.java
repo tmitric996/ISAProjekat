@@ -7,13 +7,17 @@ import com.ISA2020.back.enumerations.UsersEnum;
 import com.ISA2020.back.response.UserResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.ISA2020.back.model.User;
 import com.ISA2020.back.service.UserServiceImpl;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-
+import javax.ws.rs.core.Context;
 import static com.ISA2020.back.converter.UserConverter.toResponses;
 
 @RestController
@@ -35,9 +39,12 @@ public class UserController {
 	public User findById(@RequestBody int id) {
 		return userService.findById(id);
 	}
-	@GetMapping("/{email}")
-	public User findByEmail(@RequestBody String e) {
-		return userService.findByemail(e);
+	@PostMapping("/{email}")
+	public ResponseEntity<User> findByEmail(@RequestBody String e, @Context HttpServletRequest request) {
+		User user = userService.findByemail(e);
+		 HttpSession session = request.getSession();
+         System.out.println("\nSesija KorisnikData: " + session);
+         return new ResponseEntity<User>(user, HttpStatus.OK);
 	}
 
 	@GetMapping("/svi")
@@ -46,7 +53,8 @@ public class UserController {
 	}
 	@GetMapping("/whoami")
 	//@PreAuthorize("hasRole('USER')")
-	public User user(Principal user) {
-		return this.userService.findByemail(user.getName());
+	public User user(User user) {
+		System.out.println("usao u whoami");
+		return this.userService.findByemail(user.getEmail());
 	}
 }
