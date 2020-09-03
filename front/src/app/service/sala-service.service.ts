@@ -24,6 +24,10 @@ export class SalaServiceService {
    }
 
    public delete(sala: Sala){
-     return this.http.delete<Sala>(this.salaUrlId)
+     return this.http.delete<Sala>(this.salaUrlId);
+   }
+
+   dodaj(sala: Sala){
+
    }
 }
