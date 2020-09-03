@@ -12,7 +12,8 @@ export class DijagnozaDodajUSifrarnikComponent implements OnInit {
 
   dijagnoze: Dijagnoza[];
 
-  constructor(private dijagnozaService: DijagnozaService) { }
+  constructor(private dijagnozaService: DijagnozaService) {
+  }
 
   ngOnInit(): void {
     this.load();
@@ -24,8 +25,8 @@ export class DijagnozaDodajUSifrarnikComponent implements OnInit {
     });
   }
 
-  dodaj(ime: string, sifra: number){
-    this.dijagnozaService.dodaj(ime, sifra);
+  dodaj(dijagnoza: Dijagnoza){
+    this.dijagnozaService.dodaj(dijagnoza);
     this.load();
   }
 }

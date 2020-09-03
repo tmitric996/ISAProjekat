@@ -19,7 +19,7 @@ export class DijagnozaService {
     return this.http.get<Dijagnoza[]>(this.dijagnozaUrl);
   }
 
-  dodaj(dijagnoza : Dijagnoza){
+  dodaj(dijagnoza: Dijagnoza){
 
   }
 }
