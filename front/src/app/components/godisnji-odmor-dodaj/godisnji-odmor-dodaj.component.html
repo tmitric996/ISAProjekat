@@ -1,0 +1,21 @@
+
+<div class="card-body">
+  <table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">Za radnika</th>
+      <th scope="col">Datum pocetka</th>
+      <th scope="col">Datum zavrsetka</th>
+      <th scope="col">Status godisnjeg odmora</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let godisnjiOdmor of godisnjiOdmori">
+      <td>{{ godisnjiOdmor.zaRadnika}}</td>
+      <td>{{ godisnjiOdmor.datumPocetka}}</td>
+      <td>{{ godisnjiOdmor.datumZavrsetka}}</td>
+      <td>{{ godisnjiOdmor.statusGpdosnjeg}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

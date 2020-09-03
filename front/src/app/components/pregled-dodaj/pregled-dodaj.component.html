@@ -1,0 +1,26 @@
+<div class="card-body">
+  <table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">Datum i Vreme</th>
+      <th scope="col">Tip pregleda</th>
+      <th scope="col">Doktor koji vrsi</th>
+      <th scope="col">Broj sale</th>
+      <th scope="col">Pacijent</th>
+      <th scope="col">Status pregleda</th>
+      <th scope="col">Izvestaj</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let pregled of pregledi">
+      <td>{{ pregled.datumVreme}}</td>
+      <td>{{ pregled.tipPregleda}}</td>
+      <td>{{ pregled.doktorKojiVrsi}}</td>
+      <td>{{ pregled.brojSale}}</td>
+      <td>{{ pregled.pacijent}}</td>
+      <td>{{ pregled.statusPregleda}}</td>
+      <td>{{ pregled.izvestaj}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

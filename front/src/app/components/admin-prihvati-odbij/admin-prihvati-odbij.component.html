@@ -1,0 +1,26 @@
+<div>
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">Email</th>
+        <th scope="col">TipKorisnika</th>
+        <th scope="col">Prihvati</th>
+        <th scope="col">Odbij</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let user of useri">
+        <td>{{ user.email}}</td>
+        <td>{{ user.tipKorisnika}}</td>
+        <td>
+          <button (click)="prihvati(user.id)">OK</button>
+        </td>
+        <td>
+          <button (click)="odbij(user.id)">X</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
