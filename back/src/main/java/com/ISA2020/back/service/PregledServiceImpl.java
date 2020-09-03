@@ -1,5 +1,8 @@
 package com.ISA2020.back.service;
 
+import java.sql.Timestamp;
+import java.time.ZonedDateTime;
+import java.util.Date;
 import java.util.List;
 
 import com.ISA2020.back.request.PregledRequest;
@@ -46,9 +49,12 @@ public class PregledServiceImpl implements PregledService{
 
 	@Override
 	public void dodaj(PregledRequest pregledRequest){
+		if(daLiJeZauzet(pregledRequest.getDoktorKojiVrsi(), pregledRequest.getDatumVreme(), pregledRequest.getKrajPregleda()) == true) {
+			// TODO: 01/09/2020 vratiti gresku korisniku
+		}
 		Pregled pregled = new Pregled();
 		pregled.setDatumVreme(pregledRequest.getDatumVreme());
-		pregled.setTrajanjePregleda(pregledRequest.getTrajanjePregleda());
+		pregled.setKrajPregleda(pregledRequest.getKrajPregleda());
 		pregled.setTipPRegleda(pregledRequest.getTipPRegleda());
 		pregled.setDoktorKojiVrsi(pregledRequest.getDoktorKojiVrsi());
 		pregled.setBrojSale(pregled.getBrojSale());
@@ -63,6 +69,16 @@ public class PregledServiceImpl implements PregledService{
 		Pregled pregled = pregledRepo.getOne(id);
 		pregled.setIzvestaj(pregledRequest.getIzvestaj());
 		pregledRepo.save(pregled);
+	}
+
+	private boolean daLiJeZauzet(Long id, ZonedDateTime pocetakPregleda, ZonedDateTime krajPregleda){
+		List<Pregled> pregledList = pregledRepo.findAllByDoktorKojiVrsiAndDatumVremeAfterAndKrajPregledaBefore(id, ZonedDateTime.now().minusDays(1), ZonedDateTime.now().plusDays(1));
+		for (Pregled pregled : pregledList) {
+			if(pregled.getDatumVreme().isBefore(krajPregleda) && pregled.getKrajPregleda().isBefore(pocetakPregleda) && pocetakPregleda.isBefore(krajPregleda)){
+				return true;
+			}
+		}
+		return false;
 	}
 
 }

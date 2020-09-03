@@ -8,6 +8,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
+import java.time.ZonedDateTime;
 import java.util.Date;
 
 @Entity
@@ -18,9 +19,9 @@ public class PregledResponse {
     @Id
     Long id;
     @NotBlank
-    Date datumVreme;
+    ZonedDateTime datumVreme;
     @NotBlank
-    String trajanjePregleda;
+    ZonedDateTime krajPregleda;
     @NotBlank
     Long tipPRegleda;
     @NotBlank

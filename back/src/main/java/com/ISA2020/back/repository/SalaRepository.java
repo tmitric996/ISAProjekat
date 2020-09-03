@@ -14,4 +14,5 @@ public interface SalaRepository extends JpaRepository<Sala, Long> {
 	List<Sala> findAll();
 	@Query(value = "SELECT * FROM sala AS s where slobodna=true", nativeQuery = true)
 	List<Sala> findSlobodna(boolean b);
+
 }

@@ -10,7 +10,7 @@ import java.util.List;
 public class PregledConverter {
 
     public static PregledResponse toResponse(Pregled pregled){
-        return new PregledResponse(pregled.getId(), pregled.getDatumVreme(), pregled.getTrajanjePregleda(), pregled.getTipPRegleda(), pregled.getDoktorKojiVrsi(), pregled.getBrojSale(), pregled.getPacijent(), pregled.getStatusPregleda(), pregled.getIzvestaj());
+        return new PregledResponse(pregled.getId(), pregled.getDatumVreme(), pregled.getKrajPregleda(), pregled.getTipPRegleda(), pregled.getDoktorKojiVrsi(), pregled.getBrojSale(), pregled.getPacijent(), pregled.getStatusPregleda(), pregled.getIzvestaj());
     }
 
     public static List<PregledResponse> toResponses(List<Pregled> pregledList){

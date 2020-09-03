@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.ZonedDateTime;
 import java.util.Date;
 import java.util.List;
 @Data
@@ -18,12 +19,14 @@ public class Operacija {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private Date datumVreme;
+    private ZonedDateTime datumVreme;
 
     @ManyToOne
     @JoinColumn(name = "pacijentId")
     private Pacijent pacijent;
     //za listu medicinskih radnika
 
+    @ManyToOne
+    private Sala salaUKojojSeVrsi;
 
 }

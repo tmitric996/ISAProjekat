@@ -1,4 +1,5 @@
 package com.ISA2020.back.model;
+import java.time.ZonedDateTime;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -24,9 +25,9 @@ public class Pregled {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Column
-	private Date datumVreme;
+	private ZonedDateTime datumVreme;
 	@Column
-	private String trajanjePregleda;
+	private ZonedDateTime krajPregleda;
 	@Column
 	private Long tipPRegleda;
 	@Column

@@ -4,15 +4,16 @@ import com.ISA2020.back.enumerations.StanjePregleda;
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
+import java.time.ZonedDateTime;
 import java.util.Date;
 
 @Data
 public class PregledRequest {
 
     @NotBlank
-    Date datumVreme;
+    ZonedDateTime datumVreme;
     @NotBlank
-    String trajanjePregleda;
+    ZonedDateTime krajPregleda;
     @NotBlank
     Long tipPRegleda;
     @NotBlank
